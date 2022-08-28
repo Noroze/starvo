@@ -2,12 +2,12 @@ import Router from 'next/router';
 import Head from 'next/head';
 import NProgress from 'nprogress';
 import { ChakraProvider } from '@chakra-ui/react';
-
 import Layout from '../components/Layout';
 
-function MyApp({ Component, pageProps }) {
-  NProgress.configure({ showSpinner: false });
 
+function MyApp({ Component, pageProps }) {
+
+  NProgress.configure({ showSpinner: false });
   Router.events.on('routeChangeStart', () => {
     NProgress.start();
   });
@@ -19,6 +19,23 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <meta name="google-site-verification" content="n97ETkl7QMpWdHF50ziilhQzBYlvNM3MBhbT1gEGTcE" />
+        <script
+          strategy="lazyOnload"
+          src={'https://www.googletagmanager.com/gtag/js?id=G-PL2KSRFC4L'}
+        />
+        <script strategy="lazyOnload">
+          {
+            `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PL2KSRFC4L');
+    `
+          }
+        </script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-"
+          crossOrigin="anonymous"></script>
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css' integrity='sha512-42kB9yDlYiCEfx2xVwq0q7hT4uf26FUgSIZBK8uiaEnTdShXjwr8Ip1V4xGJMg3mHkUt9nNuTDxunHF0/EgxLQ==' crossOrigin='anonymous' referrerPolicy='no-referrer' />
       </Head>
       <ChakraProvider>
@@ -31,3 +48,5 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+
